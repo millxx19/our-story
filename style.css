@@ -1,0 +1,78 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #111111 0%, #2A1B24 40%, #FFE5EC 80%, #F9F6F0 100%);
+    background-attachment: fixed;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.glass-dark {
+    background: rgba(17, 17, 17, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ================= Animasi Transisi Halaman (Smooth SPA) ================= */
+.page-content {
+    display: none;
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+    filter: blur(4px);
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                filter 0.6s ease;
+}
+
+.page-content.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+}
+
+.page-content.fade-out {
+    opacity: 0;
+    transform: scale(1.02) translateY(-10px);
+    filter: blur(4px);
+}
+
+/* Floating Hearts Animation */
+.heart {
+    position: fixed;
+    font-size: 1.2rem;
+    color: #FFB3C6;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 8s linear infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(17, 17, 17, 0.9);
+}
+::-webkit-scrollbar-thumb {
+    background: #FFB3C6;
+    border-radius: 10px;
+}
